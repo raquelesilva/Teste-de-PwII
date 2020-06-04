@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Login</router-link>  |
+      <router-link to="/register">Registo</router-link> |
+      <router-link to="/table">Tabela</router-link> |
+      <router-link to="/InsAut">Automóvel</router-link> |
+      <router-link to="/InsHab">Habitação</router-link> |
+      <router-link to="/insurance">Seguros</router-link> 
+      <br><br>
+      <h1>Simulador de Seguros</h1>
     </div>
     <router-view />
   </div>
