@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import apiService from "../eshtEventAPI/apiService";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -104,13 +105,13 @@ export default new Vuex.Store({
           alert('Passwords diferentes')
         } else {
           state.users.push({
-            id: payload.id,
-            name: payload.name,
-            email: payload.email,
-            password: payload.password,
+            // id: payload.id,
+            // name: payload.name,
+            // email: payload.email,
+            // password: payload.password,
 
           });
-          localStorage.setItem("users", JSON.stringify(state.users))
+          // localStorage.setItem("users", JSON.stringify(state.users))
           alert('Conta criada')
           window.location = "./login"
         }
@@ -170,5 +171,14 @@ export default new Vuex.Store({
         return 0
       }
     },
+  },
+  actions:{
+    async addUser({ commit }, payload) {
+      commit("ADD_USER", await apiService.addUser(
+        payload.name,
+        payload.email,
+        payload.password,
+      ))
+    }
   }
 });
